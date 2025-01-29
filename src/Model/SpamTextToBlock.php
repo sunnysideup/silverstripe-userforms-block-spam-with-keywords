@@ -13,19 +13,19 @@ class SpamTextToBlock extends DataObject
     ];
 
     private static $summary_fields = [
-        'Title' => 'Keyword',
+        'Title' => 'Keyword to Block',
     ];
 
     private static $default_sort = 'Title ASC';
 
-    private static $singular_name = 'Spam Text to Block';
-    private static $plural_name = 'Spam Texts to Block';
+    private static $singular_name = 'Spam Phrase';
+    private static $plural_name = 'Spam Phrases';
 
     private static $searchable_fields = [
         'Title',
     ];
     private static $field_labels = [
-        'Title' => 'Keyword',
+        'Title' => 'Keyword to Block',
     ];
 
     private static $indexes = [

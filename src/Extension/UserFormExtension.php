@@ -9,16 +9,18 @@ use Sunnysideup\UserformsBlockSpamWithKeywords\Model\SpamTextToBlock;
 
 class UserFormExtension extends Extension
 {
-    public function updateFormOptions($options)
+    public function updateCMSFields($fields)
     {
-        $options->push(
-            GridField::create(
-                'SpamTextToBlock',
-                'Spam Text to Block',
-                SpamTextToBlock::get(),
-                GridFieldConfig_RecordEditor::create()
-            )
+        $fields->addFieldsToTab(
+            'Root.Spam',
+            [
+                GridField::create(
+                    'SpamTextToBlock',
+                    'Spam Text to Block',
+                    SpamTextToBlock::get(),
+                    GridFieldConfig_RecordEditor::create()
+                )
+            ]
         );
-        return $options;
     }
 }
