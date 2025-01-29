@@ -1,1 +1,22 @@
 # see https://docs.silverstripe.org/en/developer_guides/configuration/configuration/
+---
+Name: userforms-block-spam-with-keywords
+---
+
+SilverStripe\Core\Injector\Injector:
+  SilverStripe\UserForms\Form\UserFormsRequiredFields:
+    class: Sunnysideup\UserFormsBlockSpamWithKeywords\Extension\UserFormValidatorExtension
+
+SilverStripe\UserForms\Model\UserDefinedForm:
+  extensions:
+    - Sunnysideup\UserFormsBlockSpamWithKeywords\Extension\UserFormExtension
+
+---
+Name: userforms-block-spam-with-keywords-elemental
+Only:
+  classexists: DNADesign\ElementalUserForms\Model\ElementForm
+---
+
+DNADesign\ElementalUserForms\Model\ElementForm:
+  extensions:
+    - Sunnysideup\UserFormsBlockSpamWithKeywords\Extension\UserFormExtension
