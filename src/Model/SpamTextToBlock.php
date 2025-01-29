@@ -25,7 +25,7 @@ class SpamTextToBlock extends DataObject
         'Title',
     ];
     private static $field_labels = [
-        'Title' => 'Keyword to Block',
+        'Title' => 'Keyword to Block - e.g. viagra',
     ];
 
     private static $indexes = [
