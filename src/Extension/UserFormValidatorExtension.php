@@ -2,10 +2,10 @@
 
 namespace Sunnysideup\UserformsBlockSpamWithKeywords\Extension;
 
-use SilverStripe\UserForms\Extension\UserFormValidator;
+use SilverStripe\UserForms\Form\UserFormsRequiredFields;
 use Sunnysideup\UserformsBlockSpamWithKeywords\Model\SpamTextToBlock;
 
-class UserFormValidatorExtension extends UserFormValidator
+class UserFormValidatorExtension extends UserFormsRequiredFields
 {
     public function php($data)
     {
