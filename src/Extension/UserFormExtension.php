@@ -19,7 +19,7 @@ class UserFormExtension extends Extension
                     'Spam Text to Block',
                     SpamTextToBlock::get(),
                     GridFieldConfig_RecordEditor::create()
-                )
+                ),
             ]
         );
     }
