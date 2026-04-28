@@ -2,17 +2,19 @@
 
 namespace Sunnysideup\UserformsBlockSpamWithKeywords\Extension;
 
-use SilverStripe\UserForms\Form\UserFormsRequiredFields;
+use Override;
+use SilverStripe\UserForms\Form\UserFormsRequiredFieldsValidator;
 use Sunnysideup\UserformsBlockSpamWithKeywords\Model\SpamTextToBlock;
 
-class UserFormValidatorExtension extends UserFormsRequiredFields
+class UserFormValidatorExtension extends UserFormsRequiredFieldsValidator
 {
+    #[Override]
     public function php($data)
     {
         $list = SpamTextToBlock::get()->column('Title');
         foreach ($data as $key => $value) {
             foreach ($list as $spam) {
-                if (stripos($value, $spam) !== false) {
+                if (stripos((string) $value, (string) $spam) !== false) {
                     $this->validationError(
                         $key,
                         'This field contains a keyword that is not allowed.',
@@ -22,6 +24,7 @@ class UserFormValidatorExtension extends UserFormsRequiredFields
                 }
             }
         }
+
         return parent::php($data);
     }
 }
