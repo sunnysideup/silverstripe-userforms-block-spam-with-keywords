@@ -12,7 +12,7 @@ class UserFormValidatorExtension extends UserFormsRequiredFields
         $list = SpamTextToBlock::get()->column('Title');
         foreach ($data as $key => $value) {
             foreach ($list as $spam) {
-                if (stripos($value, $spam) !== false) {
+                if (stripos((string) $value, (string) $spam) !== false) {
                     $this->validationError(
                         $key,
                         'This field contains a keyword that is not allowed.',
